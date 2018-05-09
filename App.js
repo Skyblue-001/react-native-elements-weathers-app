@@ -16,15 +16,20 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center'
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    flexDirection:'row',
+    flexWrap: 'wrap'
   },
   redView: {
-    flex: 1,
-    backgroundColor: 'red'
+    height: 50,
+    width: 50,
+    backgroundColor: 'red',
+    // alignSelf:'center'
   },
   yellowView: {
-    flex: 1,
+    height: 50,
+    width: 50,
     backgroundColor: 'yellow'
   }
 });
