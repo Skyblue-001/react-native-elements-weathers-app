@@ -2,21 +2,20 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { LinearGradient } from "expo";
 
-export default class Weather extends Component {
+export default class Weather extends React.Component {
     render(){
         return(
             <LinearGradient
-                colors={["#00C6F8","#005BEA"]}
-                style={styles.container}
-            >
-                <view style={styles.upper}>
-                    <text>Icon here!</text>
-                    <text>Temp here!</text>
-                </view>
-                <view style={styles.lower}>
-                    <text style={styles.title}>Raining like a MF</text>
-                    <text style={styles.subtitle}>For more info look outside</text>
-                </view>
+              colors={['#00C6F8', '#005BEA']}
+              style={styles.contatiner}>
+              <View style={styles.upper}>
+                <Text>Icon Here!</Text>
+                <Text style={styles.temp}>35˚</Text>
+              </View>
+              <View style={styles.lower}>
+                <Text style={styles.title}>Raining like a MF</Text>
+                <Text style={styles.subtitle}>for more info look outside</Text>
+              </View>
             </LinearGradient>
         );
     }
@@ -31,12 +30,28 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center"
     },
+    temp: {
+        fontSize: 30,
+        backgroundColor: "transparent",
+        color: "white",
+        marginTop: 10
+    },
     lower: {
         flex: 1,
         alignItems: "flex-start",
-        justifyContent: "flex-end"
+        justifyContent: "flex-end",
+        paddingLeft: 25
     },
-    title: {},
-    subtitle: {}
-
+    title: {
+        fontSize: 30,
+        backgroundColor: "transparent",
+        color: "white",
+        marginBottom: 10
+    },
+    subtitle: {
+        fontSize: 24,
+        backgroundColor: "transparent",
+        color: "white",
+        marginBottom: 24
+    }
 })
