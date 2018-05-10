@@ -1,15 +1,29 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Image, ActivityIndicator, StatusBar } from 'react-native';
 import Weather from "./Weather";
 
 export default class App extends React.Component {
   state = {
-    isLoaded: true
+    isLoaded: false
+  }
+
+  componentDidMount(){
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        this.setState({
+          isLoaded: true
+        });
+      },
+      error => { 
+        console.log(error);
+      }
+    );
   }
   render() {
     const { isLoaded } = this.state;
     return (
       <View style={styles.container}>
+        <StatusBar hidden={true} />
         {isLoaded ?  <Weather /> : (
           <View style={styles.loading}>
             <Text style={styles.loadingText}>Getting the Weather</Text>
